@@ -8,6 +8,7 @@ from sideways_bullet import Bullet
 class AlienInvasion:
     """Overall class to manage game assets and behavior."""
 
+
     def __init__(self):
         """Initialize the game, and create game resources."""
         pygame.init()
@@ -20,6 +21,7 @@ class AlienInvasion:
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
         
+
     def run_game(self):
         """Start the main loop for the game."""
         while True:
@@ -59,6 +61,7 @@ class AlienInvasion:
         elif event.key == pygame.K_SPACE:
             self._fire_bullet()
 
+
     def _check_keyup_events(self, event):
         """Respond to keypresses."""
         if event.key == pygame.K_RIGHT:
@@ -70,11 +73,13 @@ class AlienInvasion:
         elif event.key == pygame.K_DOWN:
             self.ship.moving_down = False
 
+
     def _fire_bullet(self):
         """Create a new bullet and add it to the bullets group."""
         if len(self.bullets) < self.settings.bullets_allowed:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
+
 
     def _update_bullets(self):
         """Update position of bullets and get rid of old bullets."""
